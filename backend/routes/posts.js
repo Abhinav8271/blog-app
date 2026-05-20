@@ -6,7 +6,7 @@ const Post = require('../models/Post')
 
 router.get('/posts', async (req, res) => {
   try {
-    const post = await Post.find()
+    const post = await Post.find().populate('author', 'name')
     return res.status(200).json({
       post
     })
